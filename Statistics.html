@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Addiction Statistics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body{
+            background-color: bisque;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Music Addiction Statistics by different groups by Percentage</h1>
+    <p>Visual representation of music listening habits and addiction rates: From these
+    statistics and representations, we can see that the most amount of music listeners
+    are young teens and less of young adults, older adults, and seniors. This is represented through
+    a Pie Chart and bar graph. But the thing is that more amount of frequent and casual listeners
+    have a music listening addiction than addictive listeners. In fact, addictive listeners are less.</p>
+
+    <div class="chart-container">
+        <h2>Percentage of Listeners by Habit</h2>
+        <canvas id="pieChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <h2>Average Listening Time (Daily)</h2>
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <script>
+        // Pie Chart: Listener categories
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        new Chart(pieCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Casual Listeners', 'Frequent Listeners', 'Addicted Listeners'],
+                datasets: [{
+                    data: [40, 45, 15], // Example percentages
+                    backgroundColor: ['#6c5ce7', '#00cec9', '#d63031'],
+                    borderWidth: 0.5
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Bar Chart: Listening time
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Teens', 'Young Adults', 'Adults', 'Seniors'],
+                datasets: [{
+                    label: 'The average listening time on a daily basis',
+                    data: [4.2, 3.8, 2.5, 1.1],
+                    backgroundColor: '#0984e3'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                responsive: true
+            }
+        });
+    </script>
+<section>
+
+</section>
+</body>
+</html>
